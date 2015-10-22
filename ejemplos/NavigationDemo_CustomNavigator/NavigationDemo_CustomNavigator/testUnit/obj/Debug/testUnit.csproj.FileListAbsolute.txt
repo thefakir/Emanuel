@@ -1,0 +1,8 @@
+D:\Fidel-PC\dropBoxShared\Dropbox\Emanuel app\ejemplos\NavigationDemo_CustomNavigator\NavigationDemo_CustomNavigator\testUnit\bin\Debug\testUnit.exe
+D:\Fidel-PC\dropBoxShared\Dropbox\Emanuel app\ejemplos\NavigationDemo_CustomNavigator\NavigationDemo_CustomNavigator\testUnit\bin\Debug\testUnit.pdb
+D:\Fidel-PC\dropBoxShared\Dropbox\Emanuel app\ejemplos\NavigationDemo_CustomNavigator\NavigationDemo_CustomNavigator\testUnit\obj\Debug\testUnit.csprojResolveAssemblyReference.cache
+D:\Fidel-PC\dropBoxShared\Dropbox\Emanuel app\ejemplos\NavigationDemo_CustomNavigator\NavigationDemo_CustomNavigator\testUnit\obj\Debug\testUnit.Properties.Resources.resources
+D:\Fidel-PC\dropBoxShared\Dropbox\Emanuel app\ejemplos\NavigationDemo_CustomNavigator\NavigationDemo_CustomNavigator\testUnit\obj\Debug\testUnit.TestForm.resources
+D:\Fidel-PC\dropBoxShared\Dropbox\Emanuel app\ejemplos\NavigationDemo_CustomNavigator\NavigationDemo_CustomNavigator\testUnit\obj\Debug\testUnit.csproj.GenerateResource.Cache
+D:\Fidel-PC\dropBoxShared\Dropbox\Emanuel app\ejemplos\NavigationDemo_CustomNavigator\NavigationDemo_CustomNavigator\testUnit\obj\Debug\testUnit.exe
+D:\Fidel-PC\dropBoxShared\Dropbox\Emanuel app\ejemplos\NavigationDemo_CustomNavigator\NavigationDemo_CustomNavigator\testUnit\obj\Debug\testUnit.pdb

@@ -1,0 +1,6 @@
+D:\Fidel-PC\dropBoxShared\Dropbox\Emanuel app\ejemplos\NavigationDemo_CustomNavigator\NavigationDemo_CustomNavigator\NavigationDemo\obj\Debug\NavigationDemo.csprojResolveAssemblyReference.cache
+D:\Fidel-PC\dropBoxShared\Dropbox\Emanuel app\ejemplos\NavigationDemo_CustomNavigator\NavigationDemo_CustomNavigator\NavigationDemo\obj\Debug\App.baml
+D:\Fidel-PC\dropBoxShared\Dropbox\Emanuel app\ejemplos\NavigationDemo_CustomNavigator\NavigationDemo_CustomNavigator\NavigationDemo\obj\Debug\App.g.cs
+D:\Fidel-PC\dropBoxShared\Dropbox\Emanuel app\ejemplos\NavigationDemo_CustomNavigator\NavigationDemo_CustomNavigator\NavigationDemo\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Fidel-PC\dropBoxShared\Dropbox\Emanuel app\ejemplos\NavigationDemo_CustomNavigator\NavigationDemo_CustomNavigator\NavigationDemo\obj\Debug\NavigationDemo_MarkupCompile.cache
+D:\Fidel-PC\dropBoxShared\Dropbox\Emanuel app\ejemplos\NavigationDemo_CustomNavigator\NavigationDemo_CustomNavigator\NavigationDemo\obj\Debug\NavigationDemo_MarkupCompile.lref

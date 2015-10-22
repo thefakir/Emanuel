@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EmanuelModelStoreContainer" CdmEntityContainer="EmanuelEntities">
+    <EntitySetMapping Name="Churches">
+      <EntityTypeMapping TypeName="EmanuelModel.Church">
+        <MappingFragment StoreEntitySet="Church">
+          <ScalarProperty Name="ChurchId" ColumnName="ChurchId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
+          <ScalarProperty Name="ZoneId" ColumnName="ZoneId" />
+          <ScalarProperty Name="PastorId" ColumnName="PastorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MaritalStatus">
+      <EntityTypeMapping TypeName="EmanuelModel.MaritalStatu">
+        <MappingFragment StoreEntitySet="MaritalStatus">
+          <ScalarProperty Name="MaritalStatusId" ColumnName="MaritalStatusId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Meetings">
+      <EntityTypeMapping TypeName="EmanuelModel.Meeting">
+        <MappingFragment StoreEntitySet="Meeting">
+          <ScalarProperty Name="MeetingId" ColumnName="MeetingId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="StarMeetingDate" ColumnName="StarMeetingDate" />
+          <ScalarProperty Name="EndMeetingDate" ColumnName="EndMeetingDate" />
+          <ScalarProperty Name="MeetingTypeId" ColumnName="MeetingTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Meeting_Pastor">
+      <EntityTypeMapping TypeName="EmanuelModel.Meeting_Pastor">
+        <MappingFragment StoreEntitySet="Meeting_Pastor">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ChecInTime" ColumnName="ChecInTime" />
+          <ScalarProperty Name="DepartTime" ColumnName="DepartTime" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="ObservationId" ColumnName="ObservationId" />
+          <ScalarProperty Name="PastorId" ColumnName="PastorId" />
+          <ScalarProperty Name="MeetingId" ColumnName="MeetingId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MeetingTypes">
+      <EntityTypeMapping TypeName="EmanuelModel.MeetingType">
+        <MappingFragment StoreEntitySet="MeetingType">
+          <ScalarProperty Name="MeetingTypeId" ColumnName="MeetingTypeId" />
+          <ScalarProperty Name="MeetingType1" ColumnName="MeetingType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MinisteralLevels">
+      <EntityTypeMapping TypeName="EmanuelModel.MinisteralLevel">
+        <MappingFragment StoreEntitySet="MinisteralLevel">
+          <ScalarProperty Name="MinisteralLevelId" ColumnName="MinisteralLevelId" />
+          <ScalarProperty Name="MinisteralLevel1" ColumnName="MinisteralLevel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Observations">
+      <EntityTypeMapping TypeName="EmanuelModel.Observation">
+        <MappingFragment StoreEntitySet="Observation">
+          <ScalarProperty Name="ObservationId" ColumnName="ObservationId" />
+          <ScalarProperty Name="Observation1" ColumnName="Observation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pastors">
+      <EntityTypeMapping TypeName="EmanuelModel.Pastor">
+        <MappingFragment StoreEntitySet="Pastor">
+          <ScalarProperty Name="PastorId" ColumnName="PastorId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="BirthDay" ColumnName="BirthDay" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="CellNumber" ColumnName="CellNumber" />
+          <ScalarProperty Name="PresentationDate" ColumnName="PresentationDate" />
+          <ScalarProperty Name="MaritalStatusId" ColumnName="MaritalStatusId" />
+          <ScalarProperty Name="MinisteralLevelId" ColumnName="MinisteralLevelId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Zones">
+      <EntityTypeMapping TypeName="EmanuelModel.Zone">
+        <MappingFragment StoreEntitySet="Zone">
+          <ScalarProperty Name="ZoneId" ColumnName="ZoneId" />
+          <ScalarProperty Name="ZoneNumber" ColumnName="ZoneNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

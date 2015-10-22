@@ -1,0 +1,590 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EmanuelModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="EmanuelModelStoreContainer">
+          <EntitySet Name="Church" EntityType="EmanuelModel.Store.Church" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MaritalStatus" EntityType="EmanuelModel.Store.MaritalStatus" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Meeting" EntityType="EmanuelModel.Store.Meeting" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Meeting_Pastor" EntityType="EmanuelModel.Store.Meeting_Pastor" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MeetingType" EntityType="EmanuelModel.Store.MeetingType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MinisteralLevel" EntityType="EmanuelModel.Store.MinisteralLevel" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Observation" EntityType="EmanuelModel.Store.Observation" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Pastor" EntityType="EmanuelModel.Store.Pastor" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Zone" EntityType="EmanuelModel.Store.Zone" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="fk_Church_pastor" Association="EmanuelModel.Store.fk_Church_pastor">
+            <End Role="Pastor" EntitySet="Pastor" />
+            <End Role="Church" EntitySet="Church" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Church_zone" Association="EmanuelModel.Store.fk_Church_zone">
+            <End Role="Zone" EntitySet="Zone" />
+            <End Role="Church" EntitySet="Church" />
+          </AssociationSet>
+          <AssociationSet Name="fk_meeting_MeetingType" Association="EmanuelModel.Store.fk_meeting_MeetingType">
+            <End Role="MeetingType" EntitySet="MeetingType" />
+            <End Role="Meeting" EntitySet="Meeting" />
+          </AssociationSet>
+          <AssociationSet Name="fk_meetingPastor_Meeting" Association="EmanuelModel.Store.fk_meetingPastor_Meeting">
+            <End Role="Meeting" EntitySet="Meeting" />
+            <End Role="Meeting_Pastor" EntitySet="Meeting_Pastor" />
+          </AssociationSet>
+          <AssociationSet Name="fk_meetingPastor_Observation" Association="EmanuelModel.Store.fk_meetingPastor_Observation">
+            <End Role="Observation" EntitySet="Observation" />
+            <End Role="Meeting_Pastor" EntitySet="Meeting_Pastor" />
+          </AssociationSet>
+          <AssociationSet Name="fk_meetingPastor_Pastor" Association="EmanuelModel.Store.fk_meetingPastor_Pastor">
+            <End Role="Pastor" EntitySet="Pastor" />
+            <End Role="Meeting_Pastor" EntitySet="Meeting_Pastor" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Pastor_MaritalStatus" Association="EmanuelModel.Store.fk_Pastor_MaritalStatus">
+            <End Role="MaritalStatus" EntitySet="MaritalStatus" />
+            <End Role="Pastor" EntitySet="Pastor" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Pastor_MinisteralLevel" Association="EmanuelModel.Store.fk_Pastor_MinisteralLevel">
+            <End Role="MinisteralLevel" EntitySet="MinisteralLevel" />
+            <End Role="Pastor" EntitySet="Pastor" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Church">
+          <Key>
+            <PropertyRef Name="ChurchId" />
+          </Key>
+          <Property Name="ChurchId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="60" />
+          <Property Name="Adress" Type="varchar" Nullable="false" MaxLength="400" />
+          <Property Name="ZoneId" Type="int" Nullable="false" />
+          <Property Name="PastorId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MaritalStatus">
+          <Key>
+            <PropertyRef Name="MaritalStatusId" />
+          </Key>
+          <Property Name="MaritalStatusId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="varchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Meeting">
+          <Key>
+            <PropertyRef Name="MeetingId" />
+          </Key>
+          <Property Name="MeetingId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="Description" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="StarMeetingDate" Type="datetime" Nullable="false" />
+          <Property Name="EndMeetingDate" Type="datetime" Nullable="false" />
+          <Property Name="MeetingTypeId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Meeting_Pastor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ChecInTime" Type="datetime" />
+          <Property Name="DepartTime" Type="datetime" />
+          <Property Name="Comment" Type="varchar" MaxLength="400" />
+          <Property Name="ObservationId" Type="int" Nullable="false" />
+          <Property Name="PastorId" Type="int" Nullable="false" />
+          <Property Name="MeetingId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MeetingType">
+          <Key>
+            <PropertyRef Name="MeetingTypeId" />
+          </Key>
+          <Property Name="MeetingTypeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MeetingType" Type="varchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="MinisteralLevel">
+          <Key>
+            <PropertyRef Name="MinisteralLevelId" />
+          </Key>
+          <Property Name="MinisteralLevelId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MinisteralLevel" Type="varchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Observation">
+          <Key>
+            <PropertyRef Name="ObservationId" />
+          </Key>
+          <Property Name="ObservationId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Observation" Type="varchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Pastor">
+          <Key>
+            <PropertyRef Name="PastorId" />
+          </Key>
+          <Property Name="PastorId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="LastName" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="BirthDay" Type="datetime" Nullable="false" />
+          <Property Name="Code" Type="int" Nullable="false" />
+          <Property Name="CellNumber" Type="varchar" MaxLength="60" />
+          <Property Name="PresentationDate" Type="datetime" Nullable="false" />
+          <Property Name="MaritalStatusId" Type="int" Nullable="false" />
+          <Property Name="MinisteralLevelId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Zone">
+          <Key>
+            <PropertyRef Name="ZoneId" />
+          </Key>
+          <Property Name="ZoneId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ZoneNumber" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_Church_pastor">
+          <End Role="Pastor" Type="EmanuelModel.Store.Pastor" Multiplicity="1" />
+          <End Role="Church" Type="EmanuelModel.Store.Church" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pastor">
+              <PropertyRef Name="PastorId" />
+            </Principal>
+            <Dependent Role="Church">
+              <PropertyRef Name="PastorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Church_zone">
+          <End Role="Zone" Type="EmanuelModel.Store.Zone" Multiplicity="1" />
+          <End Role="Church" Type="EmanuelModel.Store.Church" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zone">
+              <PropertyRef Name="ZoneId" />
+            </Principal>
+            <Dependent Role="Church">
+              <PropertyRef Name="ZoneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_meeting_MeetingType">
+          <End Role="MeetingType" Type="EmanuelModel.Store.MeetingType" Multiplicity="1" />
+          <End Role="Meeting" Type="EmanuelModel.Store.Meeting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MeetingType">
+              <PropertyRef Name="MeetingTypeId" />
+            </Principal>
+            <Dependent Role="Meeting">
+              <PropertyRef Name="MeetingTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_meetingPastor_Meeting">
+          <End Role="Meeting" Type="EmanuelModel.Store.Meeting" Multiplicity="1" />
+          <End Role="Meeting_Pastor" Type="EmanuelModel.Store.Meeting_Pastor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meeting">
+              <PropertyRef Name="MeetingId" />
+            </Principal>
+            <Dependent Role="Meeting_Pastor">
+              <PropertyRef Name="MeetingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_meetingPastor_Observation">
+          <End Role="Observation" Type="EmanuelModel.Store.Observation" Multiplicity="1" />
+          <End Role="Meeting_Pastor" Type="EmanuelModel.Store.Meeting_Pastor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Observation">
+              <PropertyRef Name="ObservationId" />
+            </Principal>
+            <Dependent Role="Meeting_Pastor">
+              <PropertyRef Name="ObservationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_meetingPastor_Pastor">
+          <End Role="Pastor" Type="EmanuelModel.Store.Pastor" Multiplicity="1" />
+          <End Role="Meeting_Pastor" Type="EmanuelModel.Store.Meeting_Pastor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pastor">
+              <PropertyRef Name="PastorId" />
+            </Principal>
+            <Dependent Role="Meeting_Pastor">
+              <PropertyRef Name="PastorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Pastor_MaritalStatus">
+          <End Role="MaritalStatus" Type="EmanuelModel.Store.MaritalStatus" Multiplicity="1" />
+          <End Role="Pastor" Type="EmanuelModel.Store.Pastor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaritalStatus">
+              <PropertyRef Name="MaritalStatusId" />
+            </Principal>
+            <Dependent Role="Pastor">
+              <PropertyRef Name="MaritalStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Pastor_MinisteralLevel">
+          <End Role="MinisteralLevel" Type="EmanuelModel.Store.MinisteralLevel" Multiplicity="1" />
+          <End Role="Pastor" Type="EmanuelModel.Store.Pastor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MinisteralLevel">
+              <PropertyRef Name="MinisteralLevelId" />
+            </Principal>
+            <Dependent Role="Pastor">
+              <PropertyRef Name="MinisteralLevelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EmanuelModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="EmanuelEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Churches" EntityType="EmanuelModel.Church" />
+          <EntitySet Name="MaritalStatus" EntityType="EmanuelModel.MaritalStatu" />
+          <EntitySet Name="Meetings" EntityType="EmanuelModel.Meeting" />
+          <EntitySet Name="Meeting_Pastor" EntityType="EmanuelModel.Meeting_Pastor" />
+          <EntitySet Name="MeetingTypes" EntityType="EmanuelModel.MeetingType" />
+          <EntitySet Name="MinisteralLevels" EntityType="EmanuelModel.MinisteralLevel" />
+          <EntitySet Name="Observations" EntityType="EmanuelModel.Observation" />
+          <EntitySet Name="Pastors" EntityType="EmanuelModel.Pastor" />
+          <EntitySet Name="Zones" EntityType="EmanuelModel.Zone" />
+          <AssociationSet Name="fk_Church_pastor" Association="EmanuelModel.fk_Church_pastor">
+            <End Role="Pastor" EntitySet="Pastors" />
+            <End Role="Church" EntitySet="Churches" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Church_zone" Association="EmanuelModel.fk_Church_zone">
+            <End Role="Zone" EntitySet="Zones" />
+            <End Role="Church" EntitySet="Churches" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Pastor_MaritalStatus" Association="EmanuelModel.fk_Pastor_MaritalStatus">
+            <End Role="MaritalStatus" EntitySet="MaritalStatus" />
+            <End Role="Pastor" EntitySet="Pastors" />
+          </AssociationSet>
+          <AssociationSet Name="fk_meeting_MeetingType" Association="EmanuelModel.fk_meeting_MeetingType">
+            <End Role="MeetingType" EntitySet="MeetingTypes" />
+            <End Role="Meeting" EntitySet="Meetings" />
+          </AssociationSet>
+          <AssociationSet Name="fk_meetingPastor_Meeting" Association="EmanuelModel.fk_meetingPastor_Meeting">
+            <End Role="Meeting" EntitySet="Meetings" />
+            <End Role="Meeting_Pastor" EntitySet="Meeting_Pastor" />
+          </AssociationSet>
+          <AssociationSet Name="fk_meetingPastor_Observation" Association="EmanuelModel.fk_meetingPastor_Observation">
+            <End Role="Observation" EntitySet="Observations" />
+            <End Role="Meeting_Pastor" EntitySet="Meeting_Pastor" />
+          </AssociationSet>
+          <AssociationSet Name="fk_meetingPastor_Pastor" Association="EmanuelModel.fk_meetingPastor_Pastor">
+            <End Role="Pastor" EntitySet="Pastors" />
+            <End Role="Meeting_Pastor" EntitySet="Meeting_Pastor" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Pastor_MinisteralLevel" Association="EmanuelModel.fk_Pastor_MinisteralLevel">
+            <End Role="MinisteralLevel" EntitySet="MinisteralLevels" />
+            <End Role="Pastor" EntitySet="Pastors" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Church">
+          <Key>
+            <PropertyRef Name="ChurchId" />
+          </Key>
+          <Property Name="ChurchId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="60" Unicode="false" FixedLength="false" />
+          <Property Name="Adress" Type="String" Nullable="false" MaxLength="400" Unicode="false" FixedLength="false" />
+          <Property Name="ZoneId" Type="Int32" Nullable="false" />
+          <Property Name="PastorId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Pastor" Relationship="EmanuelModel.fk_Church_pastor" FromRole="Church" ToRole="Pastor" />
+          <NavigationProperty Name="Zone" Relationship="EmanuelModel.fk_Church_zone" FromRole="Church" ToRole="Zone" />
+        </EntityType>
+        <EntityType Name="MaritalStatu">
+          <Key>
+            <PropertyRef Name="MaritalStatusId" />
+          </Key>
+          <Property Name="MaritalStatusId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Pastors" Relationship="EmanuelModel.fk_Pastor_MaritalStatus" FromRole="MaritalStatus" ToRole="Pastor" />
+        </EntityType>
+        <EntityType Name="Meeting">
+          <Key>
+            <PropertyRef Name="MeetingId" />
+          </Key>
+          <Property Name="MeetingId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="StarMeetingDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndMeetingDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MeetingTypeId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MeetingType" Relationship="EmanuelModel.fk_meeting_MeetingType" FromRole="Meeting" ToRole="MeetingType" />
+          <NavigationProperty Name="Meeting_Pastor" Relationship="EmanuelModel.fk_meetingPastor_Meeting" FromRole="Meeting" ToRole="Meeting_Pastor" />
+        </EntityType>
+        <EntityType Name="Meeting_Pastor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ChecInTime" Type="DateTime" Precision="3" />
+          <Property Name="DepartTime" Type="DateTime" Precision="3" />
+          <Property Name="Comment" Type="String" MaxLength="400" Unicode="false" FixedLength="false" />
+          <Property Name="ObservationId" Type="Int32" Nullable="false" />
+          <Property Name="PastorId" Type="Int32" Nullable="false" />
+          <Property Name="MeetingId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Meeting" Relationship="EmanuelModel.fk_meetingPastor_Meeting" FromRole="Meeting_Pastor" ToRole="Meeting" />
+          <NavigationProperty Name="Observation" Relationship="EmanuelModel.fk_meetingPastor_Observation" FromRole="Meeting_Pastor" ToRole="Observation" />
+          <NavigationProperty Name="Pastor" Relationship="EmanuelModel.fk_meetingPastor_Pastor" FromRole="Meeting_Pastor" ToRole="Pastor" />
+        </EntityType>
+        <EntityType Name="MeetingType">
+          <Key>
+            <PropertyRef Name="MeetingTypeId" />
+          </Key>
+          <Property Name="MeetingTypeId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="MeetingType1" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Meetings" Relationship="EmanuelModel.fk_meeting_MeetingType" FromRole="MeetingType" ToRole="Meeting" />
+        </EntityType>
+        <EntityType Name="MinisteralLevel">
+          <Key>
+            <PropertyRef Name="MinisteralLevelId" />
+          </Key>
+          <Property Name="MinisteralLevelId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="MinisteralLevel1" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Pastors" Relationship="EmanuelModel.fk_Pastor_MinisteralLevel" FromRole="MinisteralLevel" ToRole="Pastor" />
+        </EntityType>
+        <EntityType Name="Observation">
+          <Key>
+            <PropertyRef Name="ObservationId" />
+          </Key>
+          <Property Name="ObservationId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Observation1" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Meeting_Pastor" Relationship="EmanuelModel.fk_meetingPastor_Observation" FromRole="Observation" ToRole="Meeting_Pastor" />
+        </EntityType>
+        <EntityType Name="Pastor">
+          <Key>
+            <PropertyRef Name="PastorId" />
+          </Key>
+          <Property Name="PastorId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="BirthDay" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Code" Type="Int32" Nullable="false" />
+          <Property Name="CellNumber" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+          <Property Name="PresentationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MaritalStatusId" Type="Int32" Nullable="false" />
+          <Property Name="MinisteralLevelId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Churches" Relationship="EmanuelModel.fk_Church_pastor" FromRole="Pastor" ToRole="Church" />
+          <NavigationProperty Name="MaritalStatu" Relationship="EmanuelModel.fk_Pastor_MaritalStatus" FromRole="Pastor" ToRole="MaritalStatus" />
+          <NavigationProperty Name="Meeting_Pastor" Relationship="EmanuelModel.fk_meetingPastor_Pastor" FromRole="Pastor" ToRole="Meeting_Pastor" />
+          <NavigationProperty Name="MinisteralLevel" Relationship="EmanuelModel.fk_Pastor_MinisteralLevel" FromRole="Pastor" ToRole="MinisteralLevel" />
+        </EntityType>
+        <EntityType Name="Zone">
+          <Key>
+            <PropertyRef Name="ZoneId" />
+          </Key>
+          <Property Name="ZoneId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ZoneNumber" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Churches" Relationship="EmanuelModel.fk_Church_zone" FromRole="Zone" ToRole="Church" />
+        </EntityType>
+        <Association Name="fk_Church_pastor">
+          <End Role="Pastor" Type="EmanuelModel.Pastor" Multiplicity="1" />
+          <End Role="Church" Type="EmanuelModel.Church" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pastor">
+              <PropertyRef Name="PastorId" />
+            </Principal>
+            <Dependent Role="Church">
+              <PropertyRef Name="PastorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Church_zone">
+          <End Role="Zone" Type="EmanuelModel.Zone" Multiplicity="1" />
+          <End Role="Church" Type="EmanuelModel.Church" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zone">
+              <PropertyRef Name="ZoneId" />
+            </Principal>
+            <Dependent Role="Church">
+              <PropertyRef Name="ZoneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Pastor_MaritalStatus">
+          <End Role="MaritalStatus" Type="EmanuelModel.MaritalStatu" Multiplicity="1" />
+          <End Role="Pastor" Type="EmanuelModel.Pastor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaritalStatus">
+              <PropertyRef Name="MaritalStatusId" />
+            </Principal>
+            <Dependent Role="Pastor">
+              <PropertyRef Name="MaritalStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_meeting_MeetingType">
+          <End Role="MeetingType" Type="EmanuelModel.MeetingType" Multiplicity="1" />
+          <End Role="Meeting" Type="EmanuelModel.Meeting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MeetingType">
+              <PropertyRef Name="MeetingTypeId" />
+            </Principal>
+            <Dependent Role="Meeting">
+              <PropertyRef Name="MeetingTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_meetingPastor_Meeting">
+          <End Role="Meeting" Type="EmanuelModel.Meeting" Multiplicity="1" />
+          <End Role="Meeting_Pastor" Type="EmanuelModel.Meeting_Pastor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meeting">
+              <PropertyRef Name="MeetingId" />
+            </Principal>
+            <Dependent Role="Meeting_Pastor">
+              <PropertyRef Name="MeetingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_meetingPastor_Observation">
+          <End Role="Observation" Type="EmanuelModel.Observation" Multiplicity="1" />
+          <End Role="Meeting_Pastor" Type="EmanuelModel.Meeting_Pastor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Observation">
+              <PropertyRef Name="ObservationId" />
+            </Principal>
+            <Dependent Role="Meeting_Pastor">
+              <PropertyRef Name="ObservationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_meetingPastor_Pastor">
+          <End Role="Pastor" Type="EmanuelModel.Pastor" Multiplicity="1" />
+          <End Role="Meeting_Pastor" Type="EmanuelModel.Meeting_Pastor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pastor">
+              <PropertyRef Name="PastorId" />
+            </Principal>
+            <Dependent Role="Meeting_Pastor">
+              <PropertyRef Name="PastorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Pastor_MinisteralLevel">
+          <End Role="MinisteralLevel" Type="EmanuelModel.MinisteralLevel" Multiplicity="1" />
+          <End Role="Pastor" Type="EmanuelModel.Pastor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MinisteralLevel">
+              <PropertyRef Name="MinisteralLevelId" />
+            </Principal>
+            <Dependent Role="Pastor">
+              <PropertyRef Name="MinisteralLevelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EmanuelModelStoreContainer" CdmEntityContainer="EmanuelEntities">
+          <EntitySetMapping Name="Churches">
+            <EntityTypeMapping TypeName="EmanuelModel.Church">
+              <MappingFragment StoreEntitySet="Church">
+                <ScalarProperty Name="ChurchId" ColumnName="ChurchId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="ZoneId" ColumnName="ZoneId" />
+                <ScalarProperty Name="PastorId" ColumnName="PastorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MaritalStatus">
+            <EntityTypeMapping TypeName="EmanuelModel.MaritalStatu">
+              <MappingFragment StoreEntitySet="MaritalStatus">
+                <ScalarProperty Name="MaritalStatusId" ColumnName="MaritalStatusId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Meetings">
+            <EntityTypeMapping TypeName="EmanuelModel.Meeting">
+              <MappingFragment StoreEntitySet="Meeting">
+                <ScalarProperty Name="MeetingId" ColumnName="MeetingId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="StarMeetingDate" ColumnName="StarMeetingDate" />
+                <ScalarProperty Name="EndMeetingDate" ColumnName="EndMeetingDate" />
+                <ScalarProperty Name="MeetingTypeId" ColumnName="MeetingTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Meeting_Pastor">
+            <EntityTypeMapping TypeName="EmanuelModel.Meeting_Pastor">
+              <MappingFragment StoreEntitySet="Meeting_Pastor">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ChecInTime" ColumnName="ChecInTime" />
+                <ScalarProperty Name="DepartTime" ColumnName="DepartTime" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="ObservationId" ColumnName="ObservationId" />
+                <ScalarProperty Name="PastorId" ColumnName="PastorId" />
+                <ScalarProperty Name="MeetingId" ColumnName="MeetingId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MeetingTypes">
+            <EntityTypeMapping TypeName="EmanuelModel.MeetingType">
+              <MappingFragment StoreEntitySet="MeetingType">
+                <ScalarProperty Name="MeetingTypeId" ColumnName="MeetingTypeId" />
+                <ScalarProperty Name="MeetingType1" ColumnName="MeetingType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MinisteralLevels">
+            <EntityTypeMapping TypeName="EmanuelModel.MinisteralLevel">
+              <MappingFragment StoreEntitySet="MinisteralLevel">
+                <ScalarProperty Name="MinisteralLevelId" ColumnName="MinisteralLevelId" />
+                <ScalarProperty Name="MinisteralLevel1" ColumnName="MinisteralLevel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Observations">
+            <EntityTypeMapping TypeName="EmanuelModel.Observation">
+              <MappingFragment StoreEntitySet="Observation">
+                <ScalarProperty Name="ObservationId" ColumnName="ObservationId" />
+                <ScalarProperty Name="Observation1" ColumnName="Observation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pastors">
+            <EntityTypeMapping TypeName="EmanuelModel.Pastor">
+              <MappingFragment StoreEntitySet="Pastor">
+                <ScalarProperty Name="PastorId" ColumnName="PastorId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="BirthDay" ColumnName="BirthDay" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="CellNumber" ColumnName="CellNumber" />
+                <ScalarProperty Name="PresentationDate" ColumnName="PresentationDate" />
+                <ScalarProperty Name="MaritalStatusId" ColumnName="MaritalStatusId" />
+                <ScalarProperty Name="MinisteralLevelId" ColumnName="MinisteralLevelId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zones">
+            <EntityTypeMapping TypeName="EmanuelModel.Zone">
+              <MappingFragment StoreEntitySet="Zone">
+                <ScalarProperty Name="ZoneId" ColumnName="ZoneId" />
+                <ScalarProperty Name="ZoneNumber" ColumnName="ZoneNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

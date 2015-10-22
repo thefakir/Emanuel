@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f71b663d4cc349eba95b7f9b874d0f87" Name="Diagram1">
+        <EntityTypeShape EntityType="EmanuelModel.Church" Width="1.5" PointX="5.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmanuelModel.MaritalStatu" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmanuelModel.Meeting" Width="1.5" PointX="6" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmanuelModel.Meeting_Pastor" Width="1.5" PointX="8.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmanuelModel.MeetingType" Width="1.5" PointX="3.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmanuelModel.MinisteralLevel" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmanuelModel.Observation" Width="1.5" PointX="6" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmanuelModel.Pastor" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmanuelModel.Zone" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="EmanuelModel.fk_Church_pastor" ManuallyRouted="false" />
+        <AssociationConnector Association="EmanuelModel.fk_Church_zone" ManuallyRouted="false" />
+        <AssociationConnector Association="EmanuelModel.fk_Pastor_MaritalStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="EmanuelModel.fk_meeting_MeetingType" ManuallyRouted="false" />
+        <AssociationConnector Association="EmanuelModel.fk_meetingPastor_Meeting" ManuallyRouted="false" />
+        <AssociationConnector Association="EmanuelModel.fk_meetingPastor_Observation" ManuallyRouted="false" />
+        <AssociationConnector Association="EmanuelModel.fk_meetingPastor_Pastor" ManuallyRouted="false" />
+        <AssociationConnector Association="EmanuelModel.fk_Pastor_MinisteralLevel" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

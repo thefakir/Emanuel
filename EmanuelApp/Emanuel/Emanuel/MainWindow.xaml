@@ -1,0 +1,14 @@
+﻿<Window x:Class="Emanuel.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Emanuel" Height="600" Width="650">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="393*"/>
+            <ColumnDefinition Width="124*"/>
+        </Grid.ColumnDefinitions>
+        <Button Name="btnCreateEvent" Content="Crear evento" HorizontalAlignment="Center" Margin="178,100,63,160" VerticalAlignment="Center" Width="152" Height="60" FontWeight="Bold" FontSize="22" Click="btnCreateEvent_Click" />
+        <Button Name="btnEvents"  Content="Ir a eventos" HorizontalAlignment="Center" Margin="178,181,63,85" VerticalAlignment="Center" Width="152" Height="54" FontWeight="Bold" FontSize="22"/>
+
+    </Grid>
+</Window>

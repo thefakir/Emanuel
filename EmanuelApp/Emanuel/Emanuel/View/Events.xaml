@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="Emanuel.Events"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="650">
+    <Grid>
+        <DataGrid Name="dgMeetings" AutoGenerateColumns="False" HorizontalAlignment="Stretch" Margin="28,220,22,60" VerticalAlignment="Stretch">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Binding="{Binding MeetingId}" ClipboardContentBinding="{x:Null}" Header="Numero de envento" HeaderStringFormat="Numero"/>
+                <DataGridTextColumn Width="*" Binding="{Binding Title}" ClipboardContentBinding="{x:Null}" Header="Evento" HeaderStringFormat="EventoString"/>
+                <DataGridTextColumn Width="*" Binding="{Binding MeetingType}" ClipboardContentBinding="{x:Null}" Header="Tipo de evento" HeaderStringFormat="Tipode eventoS"/>
+                <DataGridTextColumn Width="*" Binding="{Binding StarMeeting}" ClipboardContentBinding="{x:Null}" Header="Fecha de inicio" HeaderStringFormat="Fecha de inicioS"/>
+                <DataGridTextColumn Width="*" Binding="{Binding EndMeeting}" ClipboardContentBinding="{x:Null}" Header="Fecha de cierre" HeaderStringFormat="Fecha de cierreS"/>
+                <DataGridComboBoxColumn ClipboardContentBinding="{x:Null}" SelectedValueBinding="{x:Null}" SelectedItemBinding="{x:Null}" TextBinding="{x:Null}" Header="Accion"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+    </Grid>
+</UserControl>
