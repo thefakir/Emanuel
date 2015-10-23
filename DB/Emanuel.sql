@@ -36,7 +36,7 @@ CREATE TABLE Pastor
 	[CellNumber] [VARCHAR](60),
 	[PresentationDate] [DATETIME] NOT NULL,
 	[MaritalStatusId] int NOT NULL CONSTRAINT fk_Pastor_MaritalStatus FOREIGN KEY REFERENCES [dbo].[MaritalStatus]([MaritalStatusId]),
-	[MinisteralLevelId] int NOT NULL CONSTRAINT fk_Pastor_MaritalStatus FOREIGN KEY REFERENCES [dbo].[MinisteralLevel]([MinisteralLevelId]),
+	[MinisteralLevelId] int NOT NULL CONSTRAINT fk_Pastor_MinisteralLevel FOREIGN KEY REFERENCES [dbo].[MinisteralLevel]([MinisteralLevelId]),
 	
 );
 go
@@ -46,7 +46,7 @@ CREATE TABLE Church
 	[Name] [VARCHAR](60) NOT NULL,
 	[Adress] [VARCHAR](400) NOT NULL,
     [ZoneId] int NOT NULL CONSTRAINT fk_Church_zone FOREIGN KEY REFERENCES [dbo].[Zone]([ZoneId]),
-    [PastorId] int NOT NULL CONSTRAINT fk_Church_zone FOREIGN KEY REFERENCES [dbo].[Pastor]([PastorId]),
+    [PastorId] int NOT NULL CONSTRAINT fk_Church_pastor FOREIGN KEY REFERENCES [dbo].[Pastor]([PastorId]),
 );
 
 go
@@ -82,8 +82,8 @@ CREATE TABLE Meeting_Pastor
 
 (
 	[ID] [INT] NOT NULL PRIMARY KEY IDENTITY(1,1),
-	[ChecInTime] [VARCHAR](100) NULL,
-	[DepartTime] [DATETIME](100) NULL,
+	[ChecInTime] [DATETIME] NULL,
+	[DepartTime] [DATETIME] NULL,
 	[Comment][VARCHAR](400)null,
 	[ObservationId] int NOT NULL CONSTRAINT fk_meetingPastor_Observation FOREIGN KEY REFERENCES [dbo].[Observation]([ObservationId]),
 	[PastorId] int NOT NULL CONSTRAINT fk_meetingPastor_Pastor FOREIGN KEY REFERENCES [dbo].[Pastor]([PastorId]),
