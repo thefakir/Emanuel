@@ -40,9 +40,12 @@ namespace Emanuel
         }
         #endregion
 
+        #region Events
         private void btbGoToMainWindow_Click(object sender, RoutedEventArgs e)
         {
-            this.Content = new Main();
+            
+            MainWindow.instance.UseMainView(); 
+                        
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -50,16 +53,18 @@ namespace Emanuel
             MeetingViewModel m = new MeetingViewModel();
             m.TxtTitle = txtTitle.Text;
             m.TxtDescription = txtDescription.Text;
-               TimeSpan starTime = ((DateTime)tpStarTime.Value).TimeOfDay;
-               TimeSpan endTime = ((DateTime)tpEndTime.Value).TimeOfDay;
+            TimeSpan starTime = ((DateTime)tpStarTime.Value).TimeOfDay;
+            TimeSpan endTime = ((DateTime)tpEndTime.Value).TimeOfDay;
             m.TxtStarMeetingtDate = ((DateTime)dpstarMeetingTime.SelectedDate).Add(starTime).ToString();
             m.TxtEndMeetingDate = ((DateTime)dpEndMeetingTime.SelectedDate).Add(endTime).ToString();
-                       
+
             m.TxtMeetingTypeId = cbMeetingType.SelectedIndex.ToString();
 
             m.CreateEvent();
 
-            this.Content = new Main();
+            this.Content = new MainView();
         }
+        #endregion
+       
     }
 }

@@ -1,0 +1,10 @@
+﻿<Window x:Class="Emanuel.View.InputBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="InputBox" Height="152" Width="240">
+    <StackPanel Margin="0,0,0,5">
+        <TextBlock Text="Introduce el codigo del pastor" Height="31" FontWeight="Bold" FontSize="14" />
+        <TextBox x:Name="ResponseTextBox" Height="33" />
+        <Button Name="Buscar" Content="Buscar " Click="Buscar_Click" FontWeight="Bold" FontSize="14" Height="41" />
+    </StackPanel>
+</Window>

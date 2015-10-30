@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="Emanuel.View.EventReport"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="650">
+    <Grid>
+        <DataGrid Name="dgMeetingReport" AutoGenerateColumns="False" HorizontalAlignment="Stretch" Margin="27,177,23,103" VerticalAlignment="Stretch">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Binding="{Binding PastorName}" ClipboardContentBinding="{x:Null}" Header="Pastor" HeaderStringFormat="Pastor"/>
+                <DataGridTextColumn Width="*" Binding="{Binding Church}" ClipboardContentBinding="{x:Null}" Header="Iglesia" HeaderStringFormat="Iglesia"/>
+                <DataGridTextColumn Width="*" Binding="{Binding EventType}" ClipboardContentBinding="{x:Null}" Header="Tipo de evento" HeaderStringFormat="Tipo de evento"/>
+                <DataGridTextColumn Width="*" Binding="{Binding StarMeetingTime}" ClipboardContentBinding="{x:Null}" Header="Fecha y hora de inicio" HeaderStringFormat="Fecha y hora de inicio"/>
+                <DataGridTextColumn Width="*" Binding="{Binding CheckinTime}" ClipboardContentBinding="{x:Null}" Header="Fecha y hora de llegada" HeaderStringFormat="Fecha y hora de llegada"/>
+                <DataGridTextColumn Width="*" Binding="{Binding DelayTime}" ClipboardContentBinding="{x:Null}" Header="Tiempo de retraso" HeaderStringFormat="tiempo de retraso"/>
+              
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="&lt;Nombre de evento&gt;&lt;Fecha de evento&gt;" HorizontalAlignment="Left" Margin="109,25,0,0" VerticalAlignment="Top" Width="460" FontSize="24"/>
+
+    </Grid>
+</UserControl>

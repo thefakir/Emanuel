@@ -16,5 +16,7 @@ namespace Emanuel.DataAccess
         void DeleteMeeting(int meetingId);
 
         List<MeetingModel> GetMeetings();
+
+        List<MeetingReportModel> GetMeetingReport(int meetingId);
     }
 }

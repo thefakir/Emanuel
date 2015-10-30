@@ -6,16 +6,24 @@
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="650">
     <Grid>
-        <DataGrid Name="dgMeetings" AutoGenerateColumns="False" HorizontalAlignment="Stretch" Margin="28,220,22,60" VerticalAlignment="Stretch">
+        <DataGrid Name="dgMeetings" AutoGenerateColumns="False" HorizontalAlignment="Stretch" Margin="27,177,23,103" VerticalAlignment="Stretch">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="*" Binding="{Binding MeetingId}" ClipboardContentBinding="{x:Null}" Header="Numero de envento" HeaderStringFormat="Numero"/>
                 <DataGridTextColumn Width="*" Binding="{Binding Title}" ClipboardContentBinding="{x:Null}" Header="Evento" HeaderStringFormat="EventoString"/>
                 <DataGridTextColumn Width="*" Binding="{Binding MeetingType}" ClipboardContentBinding="{x:Null}" Header="Tipo de evento" HeaderStringFormat="Tipode eventoS"/>
                 <DataGridTextColumn Width="*" Binding="{Binding StarMeeting}" ClipboardContentBinding="{x:Null}" Header="Fecha de inicio" HeaderStringFormat="Fecha de inicioS"/>
                 <DataGridTextColumn Width="*" Binding="{Binding EndMeeting}" ClipboardContentBinding="{x:Null}" Header="Fecha de cierre" HeaderStringFormat="Fecha de cierreS"/>
-                <DataGridComboBoxColumn ClipboardContentBinding="{x:Null}" SelectedValueBinding="{x:Null}" SelectedItemBinding="{x:Null}" TextBinding="{x:Null}" Header="Accion"/>
-            </DataGrid.Columns>
+                <DataGridComboBoxColumn Width="*" x:Name="dgcbc" ClipboardContentBinding="{x:Null}" SelectedValueBinding="{x:Null}" SelectedItemBinding="{x:Null}" TextBinding="{x:Null}" Header="Accion">
+                    <DataGridComboBoxColumn.EditingElementStyle>
+                        <Style TargetType="{x:Type ComboBox}">
+                            <EventSetter Event="SelectionChanged" Handler="SomeSelectionChanged" />
+                        </Style>
+                    </DataGridComboBoxColumn.EditingElementStyle>
+                </DataGridComboBoxColumn>
+                </DataGrid.Columns>
         </DataGrid>
+        <Label Content="HISTORICO DE EVENTOS&#xD;&#xA;" HorizontalAlignment="Center" Margin="112,10,74,0" VerticalAlignment="Top" Width="464" FontWeight="Bold" FontSize="36"/>
+        <Button Name="btnGoBack" Content="Ir al menu principal" HorizontalAlignment="Left" Margin="10,0,0,38" VerticalAlignment="Bottom" Width="128" Click="btnGoBack_Click"/>
 
 
     </Grid>

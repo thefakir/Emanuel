@@ -6,13 +6,33 @@
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="650">
     <Grid>
-        <Image HorizontalAlignment="Left" Height="182" Margin="24,29,0,0" VerticalAlignment="Top" Width="225"/>
-        <Label Content="Santos Miranda" HorizontalAlignment="Left" Margin="270,29,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold"/>
-        <Label Content="Grado ministerial:" HorizontalAlignment="Left" Margin="286,107,0,0" VerticalAlignment="Top"/>
-        <Label Content="Estado Civil:" HorizontalAlignment="Left" Margin="286,133,0,0" VerticalAlignment="Top"/>
-        <Label Content="Numero de celular:" HorizontalAlignment="Left" Margin="286,164,0,0" VerticalAlignment="Top"/>
-        <Label Content="Fecha de presentacion:" HorizontalAlignment="Left" Margin="286,226,0,0" VerticalAlignment="Top"/>
-        <Label Content="Fecha de nacimiento:" HorizontalAlignment="Left" Margin="286,195,0,0" VerticalAlignment="Top"/>
+
+        <GroupBox Header="&#xD;&#xA;" HorizontalAlignment="Left" Margin="253,48,0,0" VerticalAlignment="Top" Height="180" Width="357" BorderBrush="#FF2F373C"/>
+
+        <Image  Source="/Images/fidel.jpg"  HorizontalAlignment="Left" Height="186" Margin="11,21,0,0" VerticalAlignment="Top" Width="214"/>
+
+        <Label Name="lblPastorName" Content="Santos Miranda" HorizontalAlignment="Left" Margin="253,0,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" Height="52"/>
+        <Label Content="Grado ministerial:" HorizontalAlignment="Left" Margin="290,68,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.019,0.192" FontWeight="Bold"/>
+        <Label Content="Estado Civil:" HorizontalAlignment="Left" Margin="320,94,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="Numero de celular:" HorizontalAlignment="Left" Margin="282,125,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="Fecha de presentacion:" HorizontalAlignment="Left" Margin="262,187,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="Fecha de nacimiento:" HorizontalAlignment="Left" Margin="271,156,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Name ="lblMinisteralLvel" Content="Pastor" HorizontalAlignment="Left" Margin="398,68,0,0" VerticalAlignment="Top"/>
+        <Label Name="lblPresentarionDate" Content="12/11/2007" HorizontalAlignment="Left" Margin="398,187,0,0" VerticalAlignment="Top"/>
+        <Label Name="lblBirthDay" Content="15/12/1975" HorizontalAlignment="Left" Margin="398,156,0,0" VerticalAlignment="Top"/>
+        <Label Name="lblCelNumber" Content="70657483" HorizontalAlignment="Left" Margin="398,125,0,0" VerticalAlignment="Top"/>
+        <Label Name="lblMaritalStatus" Content="Casado" HorizontalAlignment="Left" Margin="398,94,0,0" VerticalAlignment="Top"/>
+        <GroupBox Header="Datos de la iglesia&#xD;&#xA;" HorizontalAlignment="Left" Margin="253,256,0,0" VerticalAlignment="Top" Height="132" Width="357" BorderBrush="#FF282D30"/>
+        <Label Content="Iglesia:&#xD;&#xA;" HorizontalAlignment="Left" Margin="355,278,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Name="lblChurchName" Content="Villa moscu&#xD;&#xA;" HorizontalAlignment="Left" Margin="398,278,0,0" VerticalAlignment="Top"/>
+        <Label Content="Direccion de la iglesia:&#xA;" HorizontalAlignment="Left" Margin="270,304,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="Zona:&#xA;" HorizontalAlignment="Left" Margin="355,327,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Name="lblChurchAddress" Content="Av Juan de la rosa #23&#xA;" HorizontalAlignment="Left" Margin="399,304,0,0" VerticalAlignment="Top"/>
+        <Label Name="lblZoneNumber" Content="#5&#xA;" HorizontalAlignment="Left" Margin="398,327,0,0" VerticalAlignment="Top"/>
+        <Button Name="btnSave" Content="Guardar" HorizontalAlignment="Left" Margin="534,527,0,0" VerticalAlignment="Top" Width="75" Click="btnSave_Click"/>
+        <Button Name="btnCancel" Content="Cancelar" HorizontalAlignment="Left" Margin="436,527,0,0" VerticalAlignment="Top" Width="75" Click="btnCancel_Click"/>
+        <ComboBox HorizontalAlignment="Left" Margin="253,412,0,0" VerticalAlignment="Top" Width="188"/>
+        <TextBox HorizontalAlignment="Left" Height="63" Margin="253,449,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="296"/>
 
     </Grid>
 </UserControl>

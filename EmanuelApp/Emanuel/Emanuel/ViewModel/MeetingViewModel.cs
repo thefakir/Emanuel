@@ -12,6 +12,7 @@ namespace Emanuel.ViewModel
     public class MeetingViewModel
     {
         private MeetingModel obj = new MeetingModel();
+        private MeetingReportModel meetingReport = new MeetingReportModel();
         private MeetingFromDB _meetingService = new MeetingFromDB();
 
         public string TxtTitle
@@ -53,6 +54,22 @@ namespace Emanuel.ViewModel
             foreach (var meeting in _meetingService.GetMeetings())
             {
                    res.Add(meeting);
+            }
+
+            return res;
+        }
+        public void LogAssistControl(AssistControlModel ac)
+        {
+            _meetingService.LogAssistControl(ac);
+        }
+
+        public ObservableCollection<MeetingReportModel> GetMeetingReport(int meetingID)
+        {
+            ObservableCollection<MeetingReportModel> res = new ObservableCollection<MeetingReportModel>();
+
+            foreach (var meeting in _meetingService.GetMeetingReport(meetingID))
+            {
+                res.Add(meeting);
             }
 
             return res;
